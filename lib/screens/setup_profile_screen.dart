@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:messagly_clone_app/components/components.dart';
 import 'package:messagly_clone_app/constants.dart';
+import 'package:messagly_clone_app/screens/chats_screen.dart';
 
 class SetupProfileScreen extends StatelessWidget {
   @override
@@ -92,11 +93,11 @@ class SetupProfileScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           GradientButton(
-                            label: 'Verify',
+                            label: 'Get Started',
                             onPressed: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => SetupProfileScreen()),
+                                  builder: (context) => ChatsScreen()),
                             ),
                           ),
                           SizedBox(height: 20.0),
