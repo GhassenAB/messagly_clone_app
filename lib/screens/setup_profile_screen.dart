@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:messagly_clone_app/components/components.dart';
+import 'package:messagly_clone_app/widgets/widgets.dart';
 import 'package:messagly_clone_app/constants.dart';
 import 'package:messagly_clone_app/screens/chats_screen.dart';
 
@@ -38,7 +38,7 @@ class SetupProfileScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          color: Colors.grey[100],
+                          color: Color(0xFFF7F7F7),
                           height: 120.0,
                           width: 120.0,
                           child: Padding(
@@ -55,8 +55,9 @@ class SetupProfileScreen extends StatelessWidget {
                                     child: Text(
                                       'Setup Profile Photo',
                                       textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Colors.grey[400],
+                                      style: kMediumTextStyle.copyWith(
+                                          color:
+                                              Palette.primary.withOpacity(0.5),
                                           fontSize: 10),
                                     ),
                                   ),

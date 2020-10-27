@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:messagly_clone_app/constants.dart';
 
 class CustomInput extends StatelessWidget {
   const CustomInput({
@@ -15,14 +16,15 @@ class CustomInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color customColor = Palette.grey.withOpacity(0.1);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           text,
-          style: TextStyle(
+          style: kRegularTextStyle.copyWith(
             fontSize: 14.0,
-            color: Color(0xFF979797),
+            color: Palette.secondary.withOpacity(0.2),
           ),
         ),
         TextField(
@@ -30,11 +32,25 @@ class CustomInput extends StatelessWidget {
           keyboardType: textInputType,
           decoration: InputDecoration(
             suffixIcon: isPasswordText
-                ? Icon(MdiIcons.eyeOffOutline, color: Colors.grey[350])
+                ? Icon(
+                    MdiIcons.eyeOffOutline,
+                    color: customColor,
+                  )
                 : null,
-            border: UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey),
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: customColor,
+              ),
             ),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: customColor,
+              ),
+            ),
+          ),
+          style: kMediumTextStyle.copyWith(
+            fontSize: 14.0,
+            color: Palette.secondary,
           ),
         ),
       ],

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:messagly_clone_app/components/components.dart';
+import 'package:messagly_clone_app/widgets/widgets.dart';
 import 'package:messagly_clone_app/screens/screens.dart';
 
 import '../constants.dart';

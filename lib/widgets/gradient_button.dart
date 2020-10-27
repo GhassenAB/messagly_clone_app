@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:messagly_clone_app/constants.dart';
 
 class GradientButton extends StatelessWidget {
   const GradientButton({
@@ -29,16 +30,14 @@ class GradientButton extends StatelessWidget {
             ),
           ],
           gradient: LinearGradient(
-            colors: [
-              Color(0xFF6A62EE),
-              Color(0xFF56EDFF),
-            ],
+            colors: Palette.defaultGradient,
             stops: [0.2, 0.9],
           ),
         ),
         child: Text(
           label,
-          style: TextStyle(fontSize: 20.0, color: Colors.white),
+          style:
+              kSemiBoldTextStyle.copyWith(fontSize: 20.0, color: Colors.white),
         ),
       ),
     );

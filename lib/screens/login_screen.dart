@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:messagly_clone_app/components/components.dart';
+import 'package:messagly_clone_app/widgets/widgets.dart';
 import 'package:messagly_clone_app/screens/screens.dart';
 
 import '../constants.dart';
@@ -67,9 +67,9 @@ class LoginScreen extends StatelessWidget {
                               child: Text(
                                 'Forgot Password ?',
                                 textAlign: TextAlign.end,
-                                style: TextStyle(
+                                style: kMediumTextStyle.copyWith(
                                   fontSize: 12.0,
-                                  color: Color(0xFF979797),
+                                  color: Color(0xFF12213F).withOpacity(0.5),
                                 ),
                               ),
                             ),

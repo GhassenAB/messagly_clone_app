@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:messagly_clone_app/components/components.dart';
+import 'package:messagly_clone_app/widgets/widgets.dart';
 import 'package:messagly_clone_app/constants.dart';
 import 'package:messagly_clone_app/screens/screens.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -59,12 +59,13 @@ class _OTPScreenState extends State<OTPScreen> {
                     keyboardType: TextInputType.number,
                     onChanged: (value) => print(value),
                     pinTheme: PinTheme(
-                      selectedColor: Colors.grey[350],
-                      activeColor: Colors.grey[350],
-                      inactiveColor: Colors.grey[350],
+                      selectedColor: Palette.grey.withOpacity(0.2),
+                      activeColor: Palette.grey.withOpacity(0.2),
+                      inactiveColor: Palette.grey.withOpacity(0.2),
                       borderWidth: 1,
                     ),
-                    textStyle: TextStyle(fontSize: 18, height: 2.5),
+                    textStyle: kMediumTextStyle.copyWith(
+                        fontSize: 18, height: 2.5, color: Palette.primary),
                   ),
                 ),
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:messagly_clone_app/constants.dart';
 
 class HelpText extends StatelessWidget {
   const HelpText({
@@ -23,14 +24,14 @@ class HelpText extends StatelessWidget {
         text: TextSpan(children: [
           TextSpan(
             text: '$noticeText ',
-            style: TextStyle(
-              color: Colors.grey,
+            style: kMediumTextStyle.copyWith(
+              color: Palette.secondary.withOpacity(0.5),
               fontSize: 12.0,
             ),
           ),
           TextSpan(
               text: clickableText,
-              style: TextStyle(
+              style: kMediumTextStyle.copyWith(
                 color: Color(0xFF6968EF),
                 fontSize: 12.0,
               ),
