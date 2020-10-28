@@ -7,7 +7,7 @@ class Palette {
   static const Color primary = Color(0xFF232323);
   static const Color secondary = Color(0xFF12213F);
   static const Color grey = Color(0xFF979797);
-  static const Color chatBackground = Color(0xFFF8F8F8);
+  static const Color background = Color(0xFFF8F8F8);
 
   static const List<Color> defaultGradient = [
     Color(0xFF6A62EE),

@@ -125,3 +125,24 @@ final List<ChatUser> chatUsers = [
     timeReceive: 'Yesterday',
   ),
 ];
+
+final List<Contact> contacts = [
+  Contact(name: 'Julia Ferguson', image: 'assets/contacts/contact_1.png'),
+  Contact(name: 'Shirley Hansen', image: 'assets/contacts/contact_2.png'),
+  Contact(name: 'Jennifer Romero', image: 'assets/contacts/contact_3.png'),
+  Contact(name: 'Pamela Little', image: 'assets/contacts/contact_4.png'),
+  Contact(name: 'Catherine Gomez', image: 'assets/contacts/contact_5.png'),
+  Contact(name: 'Kelly Ellis', image: 'assets/contacts/contact_6.png'),
+  Contact(name: 'Kelly Walsh', image: 'assets/contacts/contact_7.png'),
+  Contact(name: 'Marilyn King', image: 'assets/contacts/contact_8.png'),
+  Contact(name: 'Marilyn King', image: 'assets/contacts/contact_9.png'),
+  Contact(name: 'Julia Ferguson', image: 'assets/contacts/contact_1.png'),
+  Contact(name: 'Shirley Hansen', image: 'assets/contacts/contact_2.png'),
+  Contact(name: 'Jennifer Romero', image: 'assets/contacts/contact_3.png'),
+  Contact(name: 'Pamela Little', image: 'assets/contacts/contact_4.png'),
+  Contact(name: 'Catherine Gomez', image: 'assets/contacts/contact_5.png'),
+  Contact(name: 'Kelly Ellis', image: 'assets/contacts/contact_6.png'),
+  Contact(name: 'Kelly Walsh', image: 'assets/contacts/contact_7.png'),
+  Contact(name: 'Marilyn King', image: 'assets/contacts/contact_8.png'),
+  Contact(name: 'Marilyn King', image: 'assets/contacts/contact_9.png'),
+];

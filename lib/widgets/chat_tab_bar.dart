@@ -57,7 +57,7 @@ class _CustomTextTab extends StatelessWidget {
           ),
         ),
         height: 50.0,
-        color: Palette.chatBackground,
+        color: Palette.background,
         alignment: Alignment.bottomCenter,
         padding: const EdgeInsets.only(bottom: 1.0),
       ),
@@ -90,7 +90,7 @@ class _TabSpacer extends StatelessWidget {
         },
         child: Container(
           width: 30.0,
-          color: Palette.chatBackground,
+          color: Palette.background,
         ),
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:messagly_clone_app/screens/screens.dart';
 import 'package:messagly_clone_app/widgets/widgets.dart';
 import 'package:messagly_clone_app/constants.dart';
 import 'package:messagly_clone_app/data/data.dart';
@@ -24,32 +25,20 @@ class _ChatsScreenState extends State<ChatsScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Palette.chatBackground,
+      backgroundColor: Palette.background,
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
-            backgroundColor: Palette.chatBackground,
-            title: Text(
-              'Chats',
-              style: kMediumTextStyle.copyWith(
-                color: Palette.primary,
-                fontSize: 18.0,
+          CustomAppBar(
+            title: 'Chats',
+            leadingIcon: SvgPicture.asset('assets/icons/menu_icon.svg'),
+            actionIcon: SvgPicture.asset('assets/icons/plus_icon.svg'),
+            onPressLeading: () => print('Open side menu'),
+            onPressAction: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ContactsScreen(),
               ),
             ),
-            centerTitle: true,
-            forceElevated: true,
-            floating: true,
-            elevation: 2,
-            leading: IconButton(
-              icon: SvgPicture.asset('assets/icons/menu_icon.svg'),
-              onPressed: () => print('Open side menu'),
-            ),
-            actions: [
-              IconButton(
-                icon: SvgPicture.asset('assets/icons/plus_icon.svg'),
-                onPressed: () => print('New chat'),
-              )
-            ],
           ),
           SliverPadding(
             padding: const EdgeInsets.fromLTRB(20.0, 15.0, 0.0, 12.0),

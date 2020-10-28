@@ -26,7 +26,7 @@ class ChatList extends StatelessWidget {
             ])
           : null,
       child: Container(
-        color: index == 0 ? Palette.chatBackground : null,
+        color: index == 0 ? Palette.background : null,
         height: 70.0,
         child: Column(
           children: [
