@@ -118,10 +118,7 @@ class _CustomBox extends StatelessWidget {
         children: [
           Text(
             title,
-            style: kMediumTextStyle.copyWith(
-              fontSize: 16.0,
-              color: Palette.lightBlue,
-            ),
+            style: kMediumTextStyle_2,
           ),
           SizedBox(height: 13),
           Padding(
@@ -131,10 +128,7 @@ class _CustomBox extends StatelessWidget {
               children: [
                 Text(
                   content,
-                  style: kMediumTextStyle.copyWith(
-                    fontSize: 16.0,
-                    color: Palette.primary,
-                  ),
+                  style: kRegularTextStyle_2,
                 ),
                 buttonLabel.length != 0
                     ? GestureDetector(

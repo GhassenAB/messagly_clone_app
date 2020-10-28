@@ -19,9 +19,19 @@ class Palette {
 TextStyle kRegularTextStyle =
     TextStyle(fontFamily: describeEnum(Fonts.SFProDisplay));
 
+TextStyle kRegularTextStyle_2 = kRegularTextStyle.copyWith(
+  fontSize: 16.0,
+  color: Palette.primary,
+);
+
 TextStyle kMediumTextStyle = TextStyle(
   fontFamily: describeEnum(Fonts.SFProDisplay),
   fontWeight: FontWeight.w500,
+);
+
+TextStyle kMediumTextStyle_2 = kMediumTextStyle.copyWith(
+  fontSize: 16.0,
+  color: Palette.lightBlue,
 );
 
 TextStyle kSemiBoldTextStyle = TextStyle(
