@@ -1,5 +1,14 @@
 import 'package:messagly_clone_app/models/models.dart';
 
+final currentUser = CurrentUser(
+  image: 'assets/images/current_user.png',
+  name: 'Kit Harrington',
+  phone: '+91 9876543210',
+  status: 'Do what you Love!',
+  profileLink: 'messagly.ct/kitty',
+  isActive: true,
+);
+
 final List<FavouriteUser> favouriteUsers = [
   FavouriteUser(
     image: 'assets/favourites/fav_1.png',
