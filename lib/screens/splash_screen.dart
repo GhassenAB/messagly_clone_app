@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => SettingsScreen(),
+          builder: (context) => AboutUsScreen(),
         ),
       );
       time.cancel();
