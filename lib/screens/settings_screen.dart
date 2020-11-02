@@ -5,6 +5,10 @@ import 'package:messagly_clone_app/widgets/custom_app_bar.dart';
 import 'package:messagly_clone_app/widgets/widgets.dart';
 
 class SettingsScreen extends StatefulWidget {
+  final Function menuCallback;
+
+  const SettingsScreen({Key key, this.menuCallback}) : super(key: key);
+
   @override
   _SettingsScreenState createState() => _SettingsScreenState();
 }
@@ -19,7 +23,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           CustomAppBar(
             title: 'Settings',
             leadingIcon: SvgPicture.asset('assets/icons/menu_icon.svg'),
-            onPressLeading: () => print('Open side menu'),
+            onPressLeading: widget.menuCallback,
           ),
           SliverPadding(
             padding: const EdgeInsets.only(left: 20.0, top: 20.0),

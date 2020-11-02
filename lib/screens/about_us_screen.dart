@@ -3,7 +3,16 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:messagly_clone_app/constants.dart';
 import 'package:messagly_clone_app/widgets/widgets.dart';
 
-class AboutUsScreen extends StatelessWidget {
+class AboutUsScreen extends StatefulWidget {
+  final Function menuCallback;
+
+  const AboutUsScreen({Key key, this.menuCallback}) : super(key: key);
+
+  @override
+  _AboutUsScreenState createState() => _AboutUsScreenState();
+}
+
+class _AboutUsScreenState extends State<AboutUsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +22,7 @@ class AboutUsScreen extends StatelessWidget {
           CustomAppBar(
             title: 'About Us',
             leadingIcon: SvgPicture.asset('assets/icons/menu_icon.svg'),
-            onPressLeading: () => print('Open Side menu'),
+            onPressLeading: widget.menuCallback,
           ),
           SliverPadding(
             padding: const EdgeInsets.only(left: 20.0, top: 20.0),

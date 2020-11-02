@@ -85,16 +85,21 @@ class LoginScreen extends StatelessWidget {
                           children: [
                             GradientButton(
                               label: 'Login',
-                              onPressed: () => print('Login'),
+                              onPressed: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MenuFrame()),
+                              ),
                             ),
                             SizedBox(height: 20.0),
                             HelpText(
                               noticeText: 'Don\'t have an account ?',
                               clickableText: 'Sign up here',
                               onTap: () => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => SignUpScreen())),
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SignUpScreen()),
+                              ),
                             ),
                           ],
                         ),

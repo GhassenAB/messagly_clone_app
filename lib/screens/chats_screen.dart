@@ -8,6 +8,9 @@ import 'package:messagly_clone_app/data/data.dart';
 import 'package:messagly_clone_app/models/models.dart';
 
 class ChatsScreen extends StatefulWidget {
+  final Function menuCallback;
+
+  const ChatsScreen({Key key, this.menuCallback}) : super(key: key);
   @override
   _ChatsScreenState createState() => _ChatsScreenState();
 }
@@ -32,7 +35,7 @@ class _ChatsScreenState extends State<ChatsScreen>
             title: 'Chats',
             leadingIcon: SvgPicture.asset('assets/icons/menu_icon.svg'),
             actionIcon: SvgPicture.asset('assets/icons/plus_icon.svg'),
-            onPressLeading: () => print('Open side menu'),
+            onPressLeading: widget.menuCallback,
             onPressAction: () => Navigator.push(
               context,
               MaterialPageRoute(

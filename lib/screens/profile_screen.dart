@@ -5,7 +5,16 @@ import 'package:messagly_clone_app/constants.dart';
 import 'package:messagly_clone_app/data/data.dart';
 import 'package:messagly_clone_app/widgets/custom_app_bar.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
+  final Function menuCallback;
+
+  const ProfileScreen({Key key, this.menuCallback}) : super(key: key);
+
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -17,7 +26,7 @@ class ProfileScreen extends StatelessWidget {
             CustomAppBar(
               title: 'Profile',
               leadingIcon: SvgPicture.asset('assets/icons/menu_icon.svg'),
-              onPressLeading: () => print('Open side menu'),
+              onPressLeading: widget.menuCallback,
             ),
             SliverToBoxAdapter(
               child: Container(

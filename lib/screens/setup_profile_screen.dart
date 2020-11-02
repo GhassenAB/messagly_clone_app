@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:messagly_clone_app/widgets/widgets.dart';
 import 'package:messagly_clone_app/constants.dart';
-import 'package:messagly_clone_app/screens/chats_screen.dart';
+import 'package:messagly_clone_app/screens/screens.dart';
 
 class SetupProfileScreen extends StatelessWidget {
   @override
@@ -98,7 +98,7 @@ class SetupProfileScreen extends StatelessWidget {
                             onPressed: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => ChatsScreen()),
+                                  builder: (context) => MenuFrame()),
                             ),
                           ),
                           SizedBox(height: 20.0),
