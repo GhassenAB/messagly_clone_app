@@ -10,3 +10,4 @@ export 'settings_screen.dart';
 export 'about_us_screen.dart';
 export 'menu_screen.dart';
 export 'menu_frame.dart';
+export 'chat_screen.dart';
