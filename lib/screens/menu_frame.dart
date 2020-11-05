@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:messagly_clone_app/cubit/menu_open_cubit.dart';
 import 'package:messagly_clone_app/screens/screens.dart';
 
 class MenuFrame extends StatefulWidget {
@@ -11,25 +13,20 @@ class _MenuFrameState extends State<MenuFrame>
   AnimationController _animationController;
   Animation<double> scaleAnimation, smallerScaleAnimation;
   Duration duration = Duration(milliseconds: 200);
-  bool menuOpen = false;
   List<Animation> scaleAnimations;
   Map<int, Widget> screens;
   List<Widget> screenSnapshot;
-  Function menuCallback;
   List<Widget> neededScreens = [];
 
   @override
   void initState() {
     super.initState();
-    menuCallback = () {
-      setState(() {
-        menuOpen = true;
-        _animationController.forward();
-      });
-    };
+
     _animationController = AnimationController(vsync: this, duration: duration);
+
     scaleAnimation =
         Tween<double>(begin: 1.0, end: 0.8).animate(_animationController);
+
     smallerScaleAnimation =
         Tween<double>(begin: 1.0, end: 0.7).animate(_animationController);
 
@@ -42,12 +39,13 @@ class _MenuFrameState extends State<MenuFrame>
     _animationController.reverse();
 
     neededScreens = [
-      ScreenContainer(child: ChatsScreen(menuCallback: menuCallback)),
-      ScreenContainer(child: ContactsScreen(menuCallback: menuCallback)),
-      ScreenContainer(child: ProfileScreen(menuCallback: menuCallback)),
-      ScreenContainer(child: SettingsScreen(menuCallback: menuCallback)),
-      ScreenContainer(child: AboutUsScreen(menuCallback: menuCallback)),
+      ScreenContainer(child: ChatsScreen()),
+      ScreenContainer(child: ContactsScreen()),
+      ScreenContainer(child: ProfileScreen()),
+      ScreenContainer(child: SettingsScreen()),
+      ScreenContainer(child: AboutUsScreen()),
     ];
+
     screens = {
       0: neededScreens[0],
       1: Container(
@@ -100,47 +98,58 @@ class _MenuFrameState extends State<MenuFrame>
 
   Widget buildScreenStack(int position) {
     final deviceWidth = MediaQuery.of(context).size.width;
-    return AnimatedPositioned(
-      duration: duration,
-      top: 0,
-      bottom: 0,
-      left: menuOpen ? deviceWidth * 0.65 - (position * 25) : 0.0,
-      right: menuOpen ? deviceWidth * -0.45 + (position * 25) : 0.0,
-      child: ScaleTransition(
-        scale: scaleAnimations[position],
-        child: GestureDetector(
-          onTap: () {
-            if (menuOpen) {
-              setState(() {
-                menuOpen = false;
-                _animationController.reverse();
-              });
-            }
-          },
-          child: AbsorbPointer(
-            absorbing: menuOpen,
-            child: Stack(
-              children: <Widget>[
-                Material(
-                  animationDuration: duration,
-                  borderRadius: BorderRadius.circular(menuOpen ? 4.0 : 0.0),
-                  color: Colors.transparent,
-                  child: menuOpen
-                      ? SafeArea(child: screenSnapshot[position])
-                      : screenSnapshot[position],
+    return BlocConsumer<MenuOpenCubit, bool>(
+      listener: (context, menuOpen) {
+        setState(() {
+          menuOpen
+              ? _animationController.forward()
+              : _animationController.reverse();
+        });
+      },
+      builder: (context, menuOpen) {
+        return AnimatedPositioned(
+          duration: duration,
+          top: 0,
+          bottom: 0,
+          left: menuOpen ? deviceWidth * 0.65 - (position * 25) : 0.0,
+          right: menuOpen ? deviceWidth * -0.45 + (position * 25) : 0.0,
+          child: ScaleTransition(
+            scale: scaleAnimations[position],
+            child: GestureDetector(
+              onTap: () {
+                if (menuOpen) {
+                  context.bloc<MenuOpenCubit>().closeMenu();
+                }
+              },
+              child: AbsorbPointer(
+                absorbing: menuOpen,
+                child: Stack(
+                  children: <Widget>[
+                    Material(
+                      animationDuration: duration,
+                      borderRadius: BorderRadius.circular(menuOpen ? 4.0 : 0.0),
+                      color: Colors.transparent,
+                      child: menuOpen
+                          ? SafeArea(child: screenSnapshot[position])
+                          : screenSnapshot[position],
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: finalStack(),
+    return BlocProvider(
+      create: (_) => MenuOpenCubit(),
+      child: Stack(
+        children: finalStack(),
+      ),
     );
   }
 }

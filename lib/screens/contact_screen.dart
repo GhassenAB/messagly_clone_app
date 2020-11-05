@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:messagly_clone_app/constants.dart';
+import 'package:messagly_clone_app/cubit/menu_open_cubit.dart';
 import 'package:messagly_clone_app/data/data.dart';
 import 'package:messagly_clone_app/models/models.dart';
 import 'package:messagly_clone_app/widgets/widgets.dart';
 
 class ContactsScreen extends StatefulWidget {
-  final Function menuCallback;
-
-  const ContactsScreen({Key key, this.menuCallback}) : super(key: key);
-
   @override
   _ContactsScreenState createState() => _ContactsScreenState();
 }
@@ -27,7 +25,7 @@ class _ContactsScreenState extends State<ContactsScreen> {
             title: 'Contacts',
             leadingIcon: SvgPicture.asset('assets/icons/menu_icon.svg'),
             actionIcon: SvgPicture.asset('assets/icons/plus_icon.svg'),
-            onPressLeading: widget.menuCallback,
+            onPressLeading: () => context.bloc<MenuOpenCubit>().openMenu(),
             onPressAction: () => print('add new contact'),
           ),
           SliverPadding(

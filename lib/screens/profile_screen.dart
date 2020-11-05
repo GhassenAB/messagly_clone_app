@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:messagly_clone_app/constants.dart';
+import 'package:messagly_clone_app/cubit/menu_open_cubit.dart';
 import 'package:messagly_clone_app/data/data.dart';
 import 'package:messagly_clone_app/widgets/custom_app_bar.dart';
 
 class ProfileScreen extends StatefulWidget {
-  final Function menuCallback;
-
-  const ProfileScreen({Key key, this.menuCallback}) : super(key: key);
-
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
 }
@@ -26,7 +24,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             CustomAppBar(
               title: 'Profile',
               leadingIcon: SvgPicture.asset('assets/icons/menu_icon.svg'),
-              onPressLeading: widget.menuCallback,
+              onPressLeading: () => context.bloc<MenuOpenCubit>().openMenu(),
             ),
             SliverToBoxAdapter(
               child: Container(
